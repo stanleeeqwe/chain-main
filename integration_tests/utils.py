@@ -139,7 +139,13 @@ def cluster_fixture(
 
     if enable_cov:
         # collect the coverage results
-        shutil.move(str(chain_data / "coverage.txt"), f"coverage.{uuid.uuid1()}.txt")
+        try:
+            shutil.move(
+                str(chain_data / "coverage.txt"), f"coverage.{uuid.uuid1()}.txt"
+            )
+        except:
+            print("FAILED TO FIND COVERAGE")
+            print(os.listdir(chain_data))
 
 
 def get_ledger():
