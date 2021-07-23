@@ -143,9 +143,10 @@ def cluster_fixture(
             shutil.move(
                 str(chain_data / "coverage.txt"), f"coverage.{uuid.uuid1()}.txt"
             )
-        except:
+        except FileNotFoundError:
             print("FAILED TO FIND COVERAGE")
             print(os.listdir(chain_data))
+            raise
 
 
 def get_ledger():
