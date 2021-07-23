@@ -138,6 +138,7 @@ def cluster_fixture(
             tailer.join()
 
     if enable_cov:
+        time.sleep(10)
         # collect the coverage results
         try:
             shutil.move(
